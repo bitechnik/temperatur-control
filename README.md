@@ -19,28 +19,17 @@ Installation
 ------------
 In den folgenden Schritten wird erklärt wie sie dieses Projekt verwenden können.
 
-1.  Installiere die Arduino IDE von [Arduino.cc](https://www.arduino.cc/en/Main/Software) und lade [dieses Projekt](https://gitlab.com/johuck/arduino-heat-controll-lcd/-/archive/master/arduino-heat-controll-lcd-master.zip) herunter und entpacke es.
-2.  Öffne nun die Arduino IDE und öffne die TemperaturDisplay.ino.
-3.  Nun schließen Sie ihren Arduino an und wählen unter Werkzeuge das passende Board und den passenden Port aus.
-4.  Sie können jetzt noch verschiedene einstellungen vornehmen z.B. die Pins ändern. Außerdem müssen sie dort die Min und Max Temperatur eingeben, da eine Steuerung über buttons noch nicht implementiert wurde.
-5.  Schließen sie nun die verschiedenen Komponenten wie folgt an:
-    *   Schließen sie das LCD Display über einen I2C Adapter an. Die Standard belegung sieht wie folgt aus:
-        *   VCC -> +5V
-        *   GND -> GND
-        *   SDA -> A4
-        *   SCL -> A5
-    *   Schließen sie nun den DHT22 Sensor an. Dabei sieht die belegung wie folgt aus:
-        *   DAT -> 2
-        *   VCC -> +5V
-        *   GND -> GND
-        *   Verbinden sie falls der Sensor nicht auf einer Platine mit Wiederstand ist VCC und DAT durch einen 10 KOhm Wiederstand.
-    *   Schließen sie nun ein Relais o.ä. mit der Heizung an Pin 4 und GND an.
-6.  Klicken sie nun auf den Button mit einem Pfeil der nach rechts zeigt und der Sketch wird auf den Arduino Hochgeladen.
+1. Installiere [Visual Studio Code](https://code.visualstudio.com), [Atom](https://atom.io) oder einen anderen editor der von [PlatformIO](https://platformio.org) unterstützt wird.
+2. Öffne nun den Erweiterungs Manager (VScode linke seitenleiste ganz unten), suche nach PlatformIO und installiere es (kann länger dauern). Mehr dazu auch unter [platformio.org](https://platformio.org)
+2.  Lade das Projekt Herunter, entpacke es und wähle den ordner über File->Open Folder aus.
+3. Nun kannst du links unter src die main.cpp öffnen und wie in der Arduino IDE bearbeiten.
+4.  Du kannst jetzt noch verschiedene einstellungen vornehmen z.B. die Pins ändern. Außerdem muss dort die Min und Max Temperatur eingeben, da eine Steuerung über buttons noch nicht implementiert wurde.
+3.  Nun schließt du deinen Arduino an und klickst unten auf den Pfeil nach Rechts
+5.  Schließe die verschiedenen Komponenten wie folgt an:
+<img src="https://gitlab.com/johuck/arduino-heat-controll-lcd/raw/master/bauplan_Steckplatine.png" alt="drawing" width="500"/>
 
-Hier ein möglicher aufbau:
 
-![fritzing grafik](https://gitlab.com/johuck/arduino-heat-controll-lcd/raw/master/bauplan_Steckplatine.png)
 
 To-Do
 -----
-*   Unterstützung für andere Temperatur sensoren.
+

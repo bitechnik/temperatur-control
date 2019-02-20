@@ -30,7 +30,7 @@ int count = 0;
 // function prototypes
 void logo(int zeile);
 void temp();
-void serialOut();
+void serialPrint();
 
 LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7 , 3, POSITIVE);
 DHT dht(dht22Pin,DHT22);
@@ -86,7 +86,7 @@ void loop() {
     t = sensors.getTempCByIndex(0);
     h = 0.0;
   }
-  
+
   if(isnan(t) ||isnan(h) ||t == -127.00){ // überprüfen ob fehlerhafte werte vom Sensor eingelesen wurden
     // Fehlermeldung falls werte fehlerhaft
     Serial.println("Fehler! Die Werte konnten nicht ausgelesen werden!");
@@ -99,7 +99,7 @@ void loop() {
   }else{
     // Falls Werte korrrekt, ausgabe der Werte
     // Ausgabe über die Serielle schnittstelle:
-    serialOut;
+    serialPrint();
     count++;
     if (count <= 3) {
       logo(0);
@@ -118,33 +118,18 @@ void loop() {
   }
 }
 
-void serialOut() {
-  if (cmd == 3) {
-    serialMode = 1;
-  }else if (cmd == 4){
-    serialMode = 2;
-  }else if(cmd == 5){
-    serialMode = 3;
-  }else if(cmd == 6){
-    serialMode = 4;
+void serialPrint() {
+  for(int i = 0; i < 10; i++)
+  {
+    Serial.write('\n');
   }
-  if (serialMode == 1){
-    Serial.print("Die Temperatur beträgt: ");
-    Serial.print(t);
-    Serial.println("°C");
-    Serial.print("Die Luftfeuchtigkeit beträgt: ");
-    Serial.print(h);
-    Serial.println("%");
-  }else if(serialMode == 4){
-    Serial.println(h);
-  }else if(serialMode == 3){
-    Serial.println(t);
-  }else if(serialMode == 2){
-    Serial.print(t);//*2.5
-    Serial.print(" ");
-    Serial.println(h);
-  }
-  
+  Serial.print("Temperatur: ");
+  Serial.print(t);
+  Serial.println("°C");
+
+  Serial.print("Luftfeuchtigkeit: ");
+  Serial.print(h);
+  Serial.println("%");
 }
 
 void temp() { // Sensor Werte auf Display anzeigen

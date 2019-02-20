@@ -1,0 +1,25 @@
+-I/home/jonas/.platformio/packages/framework-arduinoavr/cores/arduino
+-I/home/jonas/.platformio/packages/framework-arduinoavr/variants/standard
+-I/home/jonas/Documents/PlatformIO/Projects/Temperaturregler/.piolibdeps/Adafruit Unified Sensor_ID31
+-I/home/jonas/Documents/PlatformIO/Projects/Temperaturregler/.piolibdeps/DHT sensor library_ID19
+-I/home/jonas/Documents/PlatformIO/Projects/Temperaturregler/.piolibdeps/DallasTemperature_ID54
+-I/home/jonas/Documents/PlatformIO/Projects/Temperaturregler/.piolibdeps/OneWire_ID1
+-I/home/jonas/Documents/PlatformIO/Projects/Temperaturregler/.piolibdeps/LiquidCrystal
+-I/home/jonas/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/Wire/src
+-I/home/jonas/Documents/PlatformIO/Projects/Temperaturregler/.piolibdeps/LiquidCrystal@src-5e18a6fbbeb9ac5643f56ffd2be7eba2
+-I/home/jonas/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/EEPROM/src
+-I/home/jonas/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/HID/src
+-I/home/jonas/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SPI/src
+-I/home/jonas/.platformio/packages/framework-arduinoavr/libraries/__cores__/arduino/SoftwareSerial/src
+-I/home/jonas/.platformio/packages/toolchain-atmelavr/avr/include
+-I/home/jonas/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/5.4.0/include
+-I/home/jonas/.platformio/packages/toolchain-atmelavr/lib/gcc/avr/5.4.0/include-fixed
+-I/home/jonas/.platformio/packages/tool-unity
+-I/home/jonas/Documents/PlatformIO/Projects/Temperaturregler/include
+-I/home/jonas/Documents/PlatformIO/Projects/Temperaturregler/src
+-DPLATFORMIO=30604
+-DARDUINO_AVR_UNO
+-DF_CPU=16000000L
+-DARDUINO_ARCH_AVR
+-DARDUINO=10805
+-D__AVR_ATmega328P__

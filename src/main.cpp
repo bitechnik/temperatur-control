@@ -6,6 +6,7 @@
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
+
 #define ONE_WIRE_BUS 6
 OneWire oneWire(ONE_WIRE_BUS);
 DallasTemperature sensors(&oneWire);
@@ -34,6 +35,11 @@ void serialPrint();
 
 LiquidCrystal_I2C lcd(0x27, 2, 1, 0, 4, 5, 6, 7 , 3, POSITIVE);
 DHT dht(dht22Pin,DHT22);
+
+void sendData() {
+  String data = String("#") + String("T") + t + String("H") + h + String("S") + tempMin + String("X") + tempMax + String(";");
+  Serial.println(data);
+}
 
 byte bieneA[8] = { // Biene Teil 1
   B10000,
@@ -89,17 +95,18 @@ void loop() {
 
   if(isnan(t) ||isnan(h) ||t == -127.00){ // überprüfen ob fehlerhafte werte vom Sensor eingelesen wurden
     // Fehlermeldung falls werte fehlerhaft
-    Serial.println("Fehler! Die Werte konnten nicht ausgelesen werden!");
     lcd.clear();
     lcd.setCursor(0,0);
     lcd.print("!!Fehler!!");
     lcd.setCursor(0,1);
     lcd.print("Sensor Problem!");
     digitalWrite(heatPin, LOW);
+    t=0;
+    h=0;
   }else{
     // Falls Werte korrrekt, ausgabe der Werte
     // Ausgabe über die Serielle schnittstelle:
-    serialPrint();
+    sendData();
     count++;
     if (count <= 3) {
       logo(0);
@@ -118,19 +125,6 @@ void loop() {
   }
 }
 
-void serialPrint() {
-  for(int i = 0; i < 10; i++)
-  {
-    Serial.write('\n');
-  }
-  Serial.print("Temperatur: ");
-  Serial.print(t);
-  Serial.println("°C");
-
-  Serial.print("Luftfeuchtigkeit: ");
-  Serial.print(h);
-  Serial.println("%");
-}
 
 void temp() { // Sensor Werte auf Display anzeigen
   lcd.clear();

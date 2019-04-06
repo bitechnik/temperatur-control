@@ -113,14 +113,14 @@ void loop() {
     // Falls Werte korrrekt, ausgabe der Werte
     // Ausgabe über die Serielle schnittstelle:
     count++;
-    // if (count <= 3) {
-    //   logo(0);
-    // }else{
-    //   temp();
-    //   if (count >= 10){
-    //     count = 0;
-    //   }
-    // }
+    if (count <= 3) {
+      logo(0);
+    }else{
+      temp();
+      if (count >= 10){
+        count = 0;
+      }
+    }
     // Heizungssteuerung
     if (t > tempMax){               //Wenn Temperatur größer als die maximal Temperatur ist
       digitalWrite(heatPin, LOW);     //wird die Heizung abgeschaltet
@@ -131,16 +131,15 @@ void loop() {
 }
 
 void sendData() {
-  String data = String("#") + String("T") + t + String("H") + h + String("S") + tempMin + String("X") + tempMax + String(";");
+  String data;
+  data = String("#") + String("T") + t + String("H") + h + String("S") + tempMin + String("X") + tempMax + String(";");
   Serial.println(data);
 }
 void getData() {
-  if (Serial.available()) {
-    String input = Serial.read();
-    lcd.clear();
-    lcd.setCursor(0,0);
-    lcd.print(input);
-    if (input.charAt(0) == 'S' && input.charAt(input.length()) == ';'){
+  delay(2000);
+  while (Serial.available()) {
+    String input = Serial.readString();
+    if (input.charAt(0) == 'S' && input.charAt(input.length()-1) == ';'){
       tempMin = input.substring(input.indexOf("S")+1,input.indexOf("X")-1).toFloat();
       tempMax = input.substring(input.indexOf("X")+1,input.indexOf(";")-1).toFloat();
       lcd.clear();

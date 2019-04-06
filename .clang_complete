@@ -16,7 +16,7 @@
 -I/home/johuck/.platformio/packages/tool-unity
 -I/home/johuck/Documents/PlatformIO/Projects/arduino-temperature-controll/include
 -I/home/johuck/Documents/PlatformIO/Projects/arduino-temperature-controll/src
--DPLATFORMIO=30605
+-DPLATFORMIO=30606
 -DARDUINO_AVR_UNO
 -DF_CPU=16000000L
 -DARDUINO_ARCH_AVR

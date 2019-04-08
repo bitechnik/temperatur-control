@@ -170,8 +170,6 @@ void sendData() {
 void getData(String input) {
   float newMin = 0;
   float newMax = 0;
-  lcd.clear();
-  lcd.print(input);
   if (input.charAt(0) == 'S' && input.charAt(input.length()-1) == ';'){
     newMin = input.substring(input.indexOf("S")+1,input.indexOf("X")-1).toFloat();
     newMax = input.substring(input.indexOf("X")+1,input.indexOf(";")-1).toFloat();
@@ -186,8 +184,6 @@ void getData() {
     String input = Serial.readString();
     float newMin = 0;
     float newMax = 0;
-    lcd.clear();
-    lcd.print(input);
     if (input.charAt(0) == 'S' && input.charAt(input.length()-1) == ';'){
       if (millis() > 11000) {
         newMin = input.substring(input.indexOf("S")+1,input.indexOf("X")-1).toFloat();
